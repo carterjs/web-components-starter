@@ -1,0 +1,31 @@
+{
+  "name": "web-components-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "copy-webpack-plugin": "^5.0.3",
+    "css-loader": "^2.1.1",
+    "extract-loader": "^3.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "lit-scss-loader": "^1.0.0",
+    "sass-loader": "^7.1.0",
+    "ts-loader": "^6.0.2",
+    "typescript": "^3.5.1",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.5.0",
+    "webpack-merge": "^4.2.1"
+  },
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "^2.2.10",
+    "lit-element": "^2.1.0"
+  }
+}
