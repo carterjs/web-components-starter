@@ -14,7 +14,7 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.scss$/,
+                test: /[^app]\.scss$/,
                 use: [
                     {
                         loader: "lit-scss-loader",
@@ -23,6 +23,19 @@ module.exports = {
                         }
                     },
                     "extract-loader",
+                    "css-loader",
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            includePaths: ["./node_modules"]
+                        }
+                    }
+                ]
+            },
+            {
+                test: /app\.scss/,
+                use: [
+                    "style-loader",
                     "css-loader",
                     {
                         loader: "sass-loader",
