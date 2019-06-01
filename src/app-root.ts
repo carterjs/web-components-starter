@@ -80,18 +80,22 @@ export class AppRoot extends connect(store)(LitElement) {
 
     render() {
         return html`
-            <h1 class="mdc-typography--body1">Web Components Starter</h1>
+            <h1 class="mdc-typography--body1">Quantify</h1>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/team">Our Team</a></li>
                 <li><a href="/mission">Our Mission</a></li>
                 <li><a href="/values">Our Values</a></li>
             </ul>
+            
+            <!--
             ${this.drawerState ? html`
                 <mwc-button @click="${() => this.setDrawerState(false)}">Close</mwc-button>
             ` : html`
                 <mwc-button @click="${() => this.setDrawerState(true)}">Open</mwc-button>
             `}
+            -->
+
             <hr>
             ${renderRoute(this.route)}
             <p>${this.offline ? "offline" : ""}</p>
