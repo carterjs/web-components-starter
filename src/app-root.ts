@@ -14,6 +14,20 @@ import "./app.scss";
 // Set routes
 store.dispatch(setRoutes([
     {
+        path: "/",
+        render: () => {
+            import(/* webpackChunkName: "landing-page" */"./pages/landing/landing-page");
+            return html`<landing-page></landing-page>`;
+        }
+    },
+    {
+        path: "/team",
+        render: (route) => {
+            import(/* webpackChunkName: "team-page" */"./pages/team/team-page");
+            return html`<team-page></team-page>`;
+        }
+    },
+    {
         path: "/mission",
         render: (route) => {
             import(/* webpackChunkName: "mission-page" */"./pages/mission/mission-page");
@@ -21,10 +35,10 @@ store.dispatch(setRoutes([
         }
     },
     {
-        path: "/",
-        render: () => {
-            import(/* webpackChunkName: "landing-page" */"./pages/landing/landing-page");
-            return html`<landing-page></landing-page>`;
+        path: "/values",
+        render: (route) => {
+            import(/* webpackChunkName: "values-page" */"./pages/values/values-page");
+            return html`<values-page></values-page>`;
         }
     }
 ]));
@@ -69,7 +83,9 @@ export class AppRoot extends connect(store)(LitElement) {
             <h1 class="mdc-typography--body1">Web Components Starter</h1>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/mission">Mission</a></li>
+                <li><a href="/team">Our Team</a></li>
+                <li><a href="/mission">Our Mission</a></li>
+                <li><a href="/values">Our Values</a></li>
             </ul>
             ${this.drawerState ? html`
                 <mwc-button @click="${() => this.setDrawerState(false)}">Close</mwc-button>

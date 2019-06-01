@@ -1,7 +1,7 @@
 import { customElement, LitElement, html, property } from "lit-element";
 import style from "./values-page.scss";
 
-@customElement("about-page")
+@customElement("values-page")
 export class ValuesPage extends LitElement {
 
     @property({type: String})
