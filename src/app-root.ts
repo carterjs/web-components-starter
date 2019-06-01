@@ -8,16 +8,16 @@ import { setOffline, setScreenSize, setDrawerState, navigate, setRoutes } from "
 import { AppState } from "./reducers/types";
 import { SCREEN_SIZE } from "./actions/types";
 import "@material/mwc-button/mwc-button";
-import {Route} from "./actions/types";
 import { renderRoute } from "./utils/renderRoute";
+import "./app.scss";
 
 // Set routes
 store.dispatch(setRoutes([
     {
-        path: "/mission/{section}",
+        path: "/mission",
         render: (route) => {
             import(/* webpackChunkName: "mission-page" */"./pages/mission/mission-page");
-            return html`<mission-page section="${route.args.section}"></mission-page>`;
+            return html`<mission-page></mission-page>`;
         }
     },
     {
@@ -66,7 +66,7 @@ export class AppRoot extends connect(store)(LitElement) {
 
     render() {
         return html`
-            <h1>Web Components Starter</h1>
+            <h1 class="mdc-typography--body1">Web Components Starter</h1>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/mission">Mission</a></li>
