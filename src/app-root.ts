@@ -7,8 +7,15 @@ import { store } from "./store";
 import { setOffline, setScreenSize, setDrawerState, navigate, setRoutes } from "./actions/app";
 import { AppState } from "./reducers/types";
 import { SCREEN_SIZE } from "./actions/types";
-import "@material/mwc-button/mwc-button";
 import { renderRoute } from "./utils/renderRoute";
+
+import "@material/mwc-button/mwc-button";
+import "@material/drawer";
+
+import {MDCList} from "@material/list";
+const list = MDCList.attachTo(document.querySelector('.mdc-list'));
+list.wrapFocus = true;
+
 import "./app.scss";
 
 // Set routes
@@ -80,6 +87,25 @@ export class AppRoot extends connect(store)(LitElement) {
 
     render() {
         return html`
+
+            <aside class="mdc-drawer">
+                <div class="mdc-drawer__content">
+                    <nav class="mdc-list">
+                    <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
+                        <span class="mdc-list-item__text">Inbox</span>
+                    </a>
+                    <a class="mdc-list-item" href="#">
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+                        <span class="mdc-list-item__text">Outgoing</span>
+                    </a>
+                    <a class="mdc-list-item" href="#">
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+                        <span class="mdc-list-item__text">Drafts</span>
+                    </a>
+                    </nav>
+                </div>
+            </aside>
             <h1 class="mdc-typography--body1">Quantify</h1>
             <ul>
                 <li><a href="/">Home</a></li>
