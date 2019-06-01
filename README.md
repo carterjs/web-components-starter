@@ -17,7 +17,7 @@ Build the project with ```npm run build```. The built project is put into the "d
 - [x] Load Sass as template literals
 - [x] Include web components polyfill
 - [x] Add Redux
-- [ ] Find and include a font
+- [x] Find and include a font
 - [x] Add routing and other pwa-helper states to app reducer
 - [ ] Add support for optional url parameters
 - [ ] Allow numerical parameters

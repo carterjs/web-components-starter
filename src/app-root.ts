@@ -9,12 +9,7 @@ import { AppState } from "./reducers/types";
 import { SCREEN_SIZE } from "./actions/types";
 import { renderRoute } from "./utils/renderRoute";
 
-import "@material/mwc-button/mwc-button";
-import "@material/drawer";
-
-import {MDCList} from "@material/list";
-const list = MDCList.attachTo(document.querySelector('.mdc-list'));
-list.wrapFocus = true;
+import "./components/app-navigation/app-navigation";
 
 import "./app.scss";
 
@@ -87,57 +82,16 @@ export class AppRoot extends connect(store)(LitElement) {
 
     render() {
         return html`
-
-            <aside class="mdc-drawer">
-                <div class="mdc-drawer__content">
-                    <nav class="mdc-list">
-                    <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
-                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
-                        <span class="mdc-list-item__text">Inbox</span>
-                    </a>
-                    <a class="mdc-list-item" href="#">
-                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
-                        <span class="mdc-list-item__text">Outgoing</span>
-                    </a>
-                    <a class="mdc-list-item" href="#">
-                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-                        <span class="mdc-list-item__text">Drafts</span>
-                    </a>
-                    </nav>
-                </div>
-            </aside>
-            <h1 class="mdc-typography--body1">Quantify</h1>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/team">Our Team</a></li>
-                <li><a href="/mission">Our Mission</a></li>
-                <li><a href="/values">Our Values</a></li>
-            </ul>
-            
-            <!--
-            ${this.drawerState ? html`
-                <mwc-button @click="${() => this.setDrawerState(false)}">Close</mwc-button>
-            ` : html`
-                <mwc-button @click="${() => this.setDrawerState(true)}">Open</mwc-button>
-            `}
-            -->
-
-            <hr>
+            <app-navigation></app-navigation>
             ${renderRoute(this.route)}
-            <p>${this.offline ? "offline" : ""}</p>
         `;
     }
 
     stateChanged(state: any) {
-        console.log(state.app);
         const appState = state.app as AppState;
         this.offline = appState.offline;
         this.screenSize = appState.screenSize;
         this.drawerState = appState.drawer;
         this.route = appState.route;
-    }
-
-    setDrawerState(state: boolean) {
-        store.dispatch(setDrawerState(state));
     }
 }

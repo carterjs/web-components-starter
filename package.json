@@ -27,8 +27,6 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
-    "@material/drawer": "^2.3.0",
-    "@material/list": "^2.3.0",
     "@material/mwc-button": "^0.5.0",
     "@material/typography": "^2.3.0",
     "@webcomponents/webcomponentsjs": "^2.2.10",
