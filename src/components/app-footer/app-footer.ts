@@ -21,9 +21,24 @@ export class AppFooter extends connect(store)(LitElement) {
     render() {
         return html`
             <hr>
-            <ul>
-                <li>This is a footer</li>
-            </ul>
+            <div class="footer-wrapper">
+                <ul class="footer-left-list">
+                    <li>© 2019 Cabana, Inc.</li>
+                    <li><a href="">Terms</a></li>
+                    <li><a href="">Privacy</a></li>
+                    <li><a href="">Security</a></li>
+                    <li><a href="">Services</a></li>
+                    <li><a href="">Help</a></li>
+                </ul>
+                <img class="footer-logo">*Quantify Logo*</img>
+                <ul class="footer-right-list">
+                    <li><a href="">Contact</a></li>
+                    <li><a href="">Blog</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Team</a></li>
+                    <li><a href="">Mission</a></li>
+                </ul>
+            <div>
         `;
         
     }
