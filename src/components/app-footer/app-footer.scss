@@ -1,0 +1,28 @@
+.footer {
+    &-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &-left-list, &-right-list {
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        font-size: 15px;
+
+        li {
+            padding: 5px;
+        }
+    }
+
+    &-logo {
+    }
+
+    &-left-list {
+
+    }
+
+    &-right-list {
+    }
+}
