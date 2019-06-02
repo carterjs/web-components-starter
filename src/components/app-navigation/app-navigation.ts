@@ -1,4 +1,7 @@
 import { customElement, LitElement, html, property } from "lit-element";
+
+import "@material/mwc-button/mwc-button";
+
 import style from "./app-navigation.scss";
 
 import { connect } from "pwa-helpers/connect-mixin";
@@ -20,14 +23,16 @@ export class AppNavigation extends connect(store)(LitElement) {
 
     render() {
         return html`
-            <nav>
-                <ul>
+            <nav class="navigation-wrapper">
+                <ul class="navigation-pages">
                     <li><a href="/">Home</a></li>
                     <li><a href="/team">Our Team</a></li>
                     <li><a href="/mission">Our Mission</a></li>
                     <li><a href="/values">Our Values</a></li>
                 </ul>
+                <mwc-button>Log In</mwc-button>
             </nav>
+            <hr>
         `;
         
     }
