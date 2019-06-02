@@ -28,6 +28,7 @@ export class AppNavigation extends connect(store)(LitElement) {
                     <li><a href="/values">Our Values</a></li>
                 </ul>
             </nav>
+            <hr>
         `;
         
     }
