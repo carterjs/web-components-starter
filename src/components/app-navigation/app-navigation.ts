@@ -20,13 +20,14 @@ export class AppNavigation extends connect(store)(LitElement) {
 
     render() {
         return html`
-            <nav>
-                <ul>
+            <nav class="navigation-wrapper">
+                <ul class="navigation-pages">
                     <li><a href="/">Home</a></li>
                     <li><a href="/team">Our Team</a></li>
                     <li><a href="/mission">Our Mission</a></li>
                     <li><a href="/values">Our Values</a></li>
                 </ul>
+                <div class="navigation-login">Log in</div>
             </nav>
             <hr>
         `;
