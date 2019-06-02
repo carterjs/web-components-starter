@@ -10,6 +10,7 @@ import { SCREEN_SIZE } from "./actions/types";
 import { renderRoute } from "./utils/renderRoute";
 
 import "./components/app-navigation/app-navigation";
+import "./components/app-footer/app-footer";
 
 import "./app.scss";
 
@@ -84,6 +85,7 @@ export class AppRoot extends connect(store)(LitElement) {
         return html`
             <app-navigation></app-navigation>
             ${renderRoute(this.route)}
+            <app-footer></app-footer>
         `;
     }
 
