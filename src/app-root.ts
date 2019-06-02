@@ -7,8 +7,10 @@ import { store } from "./store";
 import { setOffline, setScreenSize, setDrawerState, navigate, setRoutes } from "./actions/app";
 import { AppState } from "./reducers/types";
 import { SCREEN_SIZE } from "./actions/types";
-import "@material/mwc-button/mwc-button";
 import { renderRoute } from "./utils/renderRoute";
+
+import "./components/app-navigation/app-navigation";
+
 import "./app.scss";
 
 // Set routes
@@ -80,34 +82,16 @@ export class AppRoot extends connect(store)(LitElement) {
 
     render() {
         return html`
-            <h1 class="mdc-typography--body1">Web Components Starter</h1>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/team">Our Team</a></li>
-                <li><a href="/mission">Our Mission</a></li>
-                <li><a href="/values">Our Values</a></li>
-            </ul>
-            ${this.drawerState ? html`
-                <mwc-button @click="${() => this.setDrawerState(false)}">Close</mwc-button>
-            ` : html`
-                <mwc-button @click="${() => this.setDrawerState(true)}">Open</mwc-button>
-            `}
-            <hr>
+            <app-navigation></app-navigation>
             ${renderRoute(this.route)}
-            <p>${this.offline ? "offline" : ""}</p>
         `;
     }
 
     stateChanged(state: any) {
-        console.log(state.app);
         const appState = state.app as AppState;
         this.offline = appState.offline;
         this.screenSize = appState.screenSize;
         this.drawerState = appState.drawer;
         this.route = appState.route;
-    }
-
-    setDrawerState(state: boolean) {
-        store.dispatch(setDrawerState(state));
     }
 }
