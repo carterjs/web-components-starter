@@ -1,7 +1,9 @@
 import { Action } from "redux";
-import { BooleanStateAction, ScreenSizeAction, SCREEN_SIZE, RoutesAction, PathAction, Route } from "../actions/types";
+import { BooleanStateAction, ScreenSizeAction, RoutesAction, PathAction } from "../actions/types";
+import { SCREEN_SIZE } from "../types/screenSize";
 import { AppState } from "./types";
 import { SET_OFFLINE, SET_DRAWER_STATE, SET_SCREEN_SIZE, SET_ROUTES, NAVIGATE } from "../actions/app";
+import { Route } from "../types/routes";
 
 const initialState: AppState = {
     offline: false,
@@ -43,7 +45,7 @@ export function app(state = initialState, action: Action): AppState {
                     // Assemble args from param list
                     const terms = path.slice(1).split('/');
                     if(terms.length > 0 && !!route.params) {
-                        route.params!.forEach(param => {
+                        route.params!.forEach((param: { index: number; key: string | number; }) => {
                             if(param.index < terms.length) {
                                 route!.args[param.key] = terms[param.index];
                             }

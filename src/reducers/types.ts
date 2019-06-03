@@ -1,4 +1,5 @@
-import { SCREEN_SIZE, Route } from "../actions/types";
+import { SCREEN_SIZE } from "../types/screenSize";
+import { Route } from "../types/routes";
 
 export interface AppState {
     offline: boolean,
@@ -6,4 +7,9 @@ export interface AppState {
     screenSize: SCREEN_SIZE,
     routes: Route[],
     route: Route | null
+};
+
+export interface UserState {
+    username?: string,
+    signedIn: boolean
 };

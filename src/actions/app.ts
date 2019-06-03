@@ -1,4 +1,6 @@
-import { BooleanStateAction, SCREEN_SIZE, ScreenSizeAction, Route } from "./types";
+import { BooleanStateAction, ScreenSizeAction } from "./types";
+import { SCREEN_SIZE } from "../types/screenSize";
+import { Route } from "../types/routes";
 
 // Set network state (online = true)
 export const SET_OFFLINE = "SET_OFFLINE";
@@ -79,7 +81,6 @@ export function setRoutes(_routes: Route[]) {
 
 export const NAVIGATE = "NAVIGATE";
 export function navigate(path: string) {
-    console.log(path);
     return {
         type: NAVIGATE,
         path

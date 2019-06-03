@@ -6,14 +6,13 @@ import { installMediaQueryWatcher } from "pwa-helpers/media-query";
 import { store } from "./store";
 import { setOffline, setScreenSize, setDrawerState, navigate, setRoutes } from "./actions/app";
 import { AppState } from "./reducers/types";
-import { SCREEN_SIZE } from "./actions/types";
+import { SCREEN_SIZE } from "./types/screenSize";
 import { renderRoute } from "./utils/renderRoute";
 
 import "./components/app-header/app-header";
 import "./components/app-footer/app-footer";
 
 import style from "./app-root.scss";
-import formatting from "./styles/formatting.scss";
 import "./app.scss";
 
 // Set routes
@@ -21,29 +20,50 @@ store.dispatch(setRoutes([
     {
         path: "/",
         render: () => {
-            import(/* webpackChunkName: "landing-page" */"./pages/landing/landing-page");
+            import(/* webpackChunkName: "main-pages" */"./pages/landing/landing-page");
             return html`<landing-page></landing-page>`;
         }
     },
     {
         path: "/team",
-        render: (route) => {
-            import(/* webpackChunkName: "team-page" */"./pages/team/team-page");
+        render: () => {
+            import(/* webpackChunkName: "main-pages" */"./pages/team/team-page");
             return html`<team-page></team-page>`;
         }
     },
     {
         path: "/mission",
-        render: (route) => {
-            import(/* webpackChunkName: "mission-page" */"./pages/mission/mission-page");
+        render: () => {
+            import(/* webpackChunkName: "main-pages" */"./pages/mission/mission-page");
             return html`<mission-page></mission-page>`;
         }
     },
     {
         path: "/values",
-        render: (route) => {
-            import(/* webpackChunkName: "values-page" */"./pages/values/values-page");
+        render: () => {
+            import(/* webpackChunkName: "main-pages" */"./pages/values/values-page");
             return html`<values-page></values-page>`;
+        }
+    },
+    {
+        path: "/signin",
+        render: () => {
+            import(/* webpackChunkName: "main-pages" */"./pages/auth/sign-in/sign-in-page");
+            return html`<sign-in-page></sign-in-page>`;
+        }
+    },
+    {
+        path: "/register",
+        render: () => {
+            import(/* webpackChunkName: "main-pages" */ "./pages/auth/register/register-page");
+            return html`<register-page></register-page>`;
+        }
+    },
+    {
+        path: "/dashboard",
+        render: () => {
+            import(/* webpackChunkName: "user-pages" */ "./pages/user/dashboard/dashboard-page");
+            return html`<dashboard-page></dashboard-page>`;
         }
     }
 ]));
@@ -80,10 +100,7 @@ export class AppRoot extends connect(store)(LitElement) {
     route: any = null;
 
     static get styles() {
-        return  [
-            formatting,
-            style
-        ];
+        return style;
     }
 
     firstUpdated() {
