@@ -1,0 +1,23 @@
+footer {
+    background: #333;
+    color: #eee;
+    .links {
+        display: flex;
+        a {
+            transition: 200ms ease-in-out;
+            padding: 16px;
+            color: #888;
+            text-decoration: none;
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+    small {
+        display: block;
+        width: 100%;
+        padding: 16px;
+        color: #666;
+        text-align: center;
+    }
+}
