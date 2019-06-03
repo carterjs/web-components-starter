@@ -6,7 +6,7 @@ import style from "./app-header.scss";
 
 import { connect } from "pwa-helpers/connect-mixin";
 import { store } from "../../store";
-import { SCREEN_SIZE } from "../../actions/types";
+import { SCREEN_SIZE } from "../../types/screenSize";
 
 @customElement("app-header")
 export class AppNavigation extends connect(store)(LitElement) {
@@ -29,7 +29,7 @@ export class AppNavigation extends connect(store)(LitElement) {
                 <a href="/mission">Our Mission</a>
                 <a href="/values">Our Values</a>
                 <span style="flex: auto;"></span>
-                <mwc-button>Sign In</mwc-button>
+                <a href="/signin">Sign In</a>
             </nav>
         `;
         
