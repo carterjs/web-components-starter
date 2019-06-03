@@ -3,7 +3,7 @@ import style from "./app-footer.scss";
 
 import { connect } from "pwa-helpers/connect-mixin";
 import { store } from "../../store";
-import { SCREEN_SIZE } from "../../actions/types";
+import { SCREEN_SIZE } from "../../types/screenSize";
 
 @customElement("app-footer")
 export class AppFooter extends connect(store)(LitElement) {
