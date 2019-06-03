@@ -9,9 +9,11 @@ import { AppState } from "./reducers/types";
 import { SCREEN_SIZE } from "./actions/types";
 import { renderRoute } from "./utils/renderRoute";
 
-import "./components/app-navigation/app-navigation";
+import "./components/app-header/app-header";
 import "./components/app-footer/app-footer";
 
+import style from "./app-root.scss";
+import formatting from "./styles/formatting.scss";
 import "./app.scss";
 
 // Set routes
@@ -77,14 +79,23 @@ export class AppRoot extends connect(store)(LitElement) {
     @property({type: Object})
     route: any = null;
 
+    static get styles() {
+        return  [
+            formatting,
+            style
+        ];
+    }
+
     firstUpdated() {
         installRouter(location => this.path = location.pathname);
     }
 
     render() {
         return html`
-            <app-navigation></app-navigation>
-            ${renderRoute(this.route)}
+            <app-header></app-header>
+            <main>
+                ${renderRoute(this.route)}
+            </main>
             <app-footer></app-footer>
         `;
     }

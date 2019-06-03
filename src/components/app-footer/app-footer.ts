@@ -20,25 +20,23 @@ export class AppFooter extends connect(store)(LitElement) {
 
     render() {
         return html`
-            <hr>
-            <div class="footer-wrapper">
-                <ul class="footer-left-list">
-                    <li>© 2019 Cabana, Inc.</li>
-                    <li><a href="">Terms</a></li>
-                    <li><a href="">Privacy</a></li>
-                    <li><a href="">Security</a></li>
-                    <li><a href="">Services</a></li>
-                    <li><a href="">Help</a></li>
-                </ul>
-                <img class="footer-logo">*Quantify Logo*</img>
-                <ul class="footer-right-list">
-                    <li><a href="">Contact</a></li>
-                    <li><a href="">Blog</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Team</a></li>
-                    <li><a href="">Mission</a></li>
-                </ul>
-            <div>
+            <footer>
+                <nav class="links">
+                    <a href="">Terms</a>
+                    <a href="">Privacy</a>
+                    <a href="">Security</a>
+                    <a href="">Services</a>
+                    <a href="">Help</a>
+                    <span style="flex: auto;"></span>
+                    <a href="">Contact</a>
+                    <a href="">Blog</a>
+                    <a href="">About</a>
+                    <a href="">Team</a>
+                    <a href="">Mission</a>
+                </nav>
+                
+                <small>&copy; 2019 Cabana</small>
+            </footer>
         `;
         
     }

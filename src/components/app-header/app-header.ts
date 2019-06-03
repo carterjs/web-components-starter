@@ -2,13 +2,13 @@ import { customElement, LitElement, html, property } from "lit-element";
 
 import "@material/mwc-button/mwc-button";
 
-import style from "./app-navigation.scss";
+import style from "./app-header.scss";
 
 import { connect } from "pwa-helpers/connect-mixin";
 import { store } from "../../store";
 import { SCREEN_SIZE } from "../../actions/types";
 
-@customElement("app-navigation")
+@customElement("app-header")
 export class AppNavigation extends connect(store)(LitElement) {
 
     @property({type: Boolean})
@@ -23,16 +23,14 @@ export class AppNavigation extends connect(store)(LitElement) {
 
     render() {
         return html`
-            <nav class="navigation-wrapper">
-                <ul class="navigation-pages">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/team">Our Team</a></li>
-                    <li><a href="/mission">Our Mission</a></li>
-                    <li><a href="/values">Our Values</a></li>
-                </ul>
-                <mwc-button>Log In</mwc-button>
+            <nav class="navigation">
+                <a href="/" class="title">LOGO</a>
+                <a href="/team">Our Team</a>
+                <a href="/mission">Our Mission</a>
+                <a href="/values">Our Values</a>
+                <span style="flex: auto;"></span>
+                <mwc-button>Sign In</mwc-button>
             </nav>
-            <hr>
         `;
         
     }

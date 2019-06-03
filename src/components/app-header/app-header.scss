@@ -1,0 +1,23 @@
+.navigation {
+    background: #fff;
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    * {
+        padding: 16px;
+    }
+    a {
+        transition: 200ms ease-in-out;
+        color: #000;
+        text-decoration: none;
+        &:hover {
+            background: #eee;
+        }
+    }
+    .title {
+        font-weight: bold;
+    }
+    mwc-button {
+        padding: 0;
+        margin: 8px;
+    }
+}

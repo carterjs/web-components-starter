@@ -1,28 +1,23 @@
-.footer {
-    &-wrapper {
+footer {
+    background: #333;
+    color: #eee;
+    .links {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    &-left-list, &-right-list {
-        display: flex;
-        flex-direction: row;
-        list-style-type: none;
-        font-size: 15px;
-
-        li {
-            padding: 5px;
+        a {
+            transition: 200ms ease-in-out;
+            padding: 16px;
+            color: #888;
+            text-decoration: none;
+            &:hover {
+                color: #fff;
+            }
         }
     }
-
-    &-logo {
-    }
-
-    &-left-list {
-
-    }
-
-    &-right-list {
+    small {
+        display: block;
+        width: 100%;
+        padding: 16px;
+        color: #666;
+        text-align: center;
     }
 }
